@@ -19,7 +19,7 @@ course: "09 - Intermediate Front End Development Projects"
 project: "00 - Build a Random Quote Machine"
 ---
 # Student Project - Free Code Camp
-Build a CodePen.io app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/ONjoLe/.
+Build an app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/ONjoLe/
 
 ## Project Criteria:
 * Fulfill the below user stories. Use whichever libraries or APIs you need. Give it your own personal style.
