@@ -8,8 +8,8 @@ topics:
   - "code"
 tools:
   - "bootstrap"
-  - "jQuery"
-  - "jsonp"
+  - "jquery"
+  - "API"
 cover: "cover.png"
 photo:
   - "mockup-mobile.png"
