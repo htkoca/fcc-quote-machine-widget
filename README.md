@@ -2,7 +2,7 @@
 type: "folio"
 draft: false
 date: "2016-08-02"
-title: "Quote Machine App"
+title: "Quote Machine Widget"
 parent: "fcc"
 topics:
   - "code"
