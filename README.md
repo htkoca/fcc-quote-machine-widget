@@ -10,9 +10,10 @@ tools:
   - "bootstrap"
   - "jquery"
   - "API"
-cover: "cover.png"
+cover: "cover.jpg"
 photo:
-  - "mockup-mobile.png"
+  - "cover.jpg"
+  - "mockup-mobile.jpg"
 link: "https://htko89.github.io/fcc-quote-machine-widget/release/"
 code: "https://github.com/htko89/fcc-quote-machine-widget"
 program: "01 - Front End Development Certification"
