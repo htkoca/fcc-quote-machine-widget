@@ -11,7 +11,7 @@ function getQuote(){
 		var quoteText = result.quoteText.trim();
 		var quoteAuthor = result.quoteAuthor.trim();
 		var shareQuote = encodeURI( quoteText+" - "+quoteAuthor );
-		var shareURL = encodeURI( "https://htko89.github.io/fcc-quote-machine-widget/release/" );
+		var shareURL = encodeURI( "https://htkoca.github.io/fcc-quote-machine-widget/release/" );
 		$('#quote-text').html(quoteText);
 		$('#quote-author').html(quoteAuthor);
 		$("#quote-tw").attr("href", "https://twitter.com/share?url="+shareURL+"&hashtags=famous%2Cquotes&text="+shareQuote);
