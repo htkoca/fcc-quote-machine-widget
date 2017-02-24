@@ -1,22 +1,20 @@
 ---
-type: project
-draft: false
-date: '2016-08-02'
 title: Quote Machine Widget
-topics:
-  - code
-tools:
-  - bootstrap
-  - jquery
-  - API
+date: '2016-08-02'
 link: 'https://htkoca.github.io/fcc-quote-machine-widget/release/'
 code: 'https://github.com/htkoca/fcc-quote-machine-widget'
 program: 01 - Front End Development Certification
 course: 09 - Intermediate Front End Development Projects
 project: 00 - Build a Random Quote Machine
+categories:
+  - code
+tags:
+  - bootstrap
+  - jquery
+  - API
+cover: cover.jpg
 photos:
   - mockup-mobile.jpg
-path: code/fcc/quote-machine-widget
 ---
 # Student Project - Free Code Camp
 Build an app that is functionally similar to this: https://codepen.io/FreeCodeCamp/full/ONjoLe/
