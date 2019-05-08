@@ -10,22 +10,12 @@
     <meta name='description' content=''>
     <meta name='author' content=''>
     <!-- css -->
-    <%=
-      htmlWebpackPlugin.files.css.map(href =>
-        `<link rel="stylesheet" href="${href}">`
-      ).join("\n    ")
-    %>
   </head>
 
   <body>
     <!-- body -->
     <div id="react-root"></div>
     <!-- script -->
-    <%=
-      htmlWebpackPlugin.files.js.map(src =>
-        `<script src="${src}"></script>`
-      ).join("\n    ")
-    %>
   </body>
 
 </html>
