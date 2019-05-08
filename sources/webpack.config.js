@@ -10,8 +10,23 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const privateDir = "./private"
-const publicDir = "./public"
+
+// init variables
+const modulesDir = "./node_modules";
+const privateDir = "./private";
+const publicDir = "./public";
+
+// init mode functions
+function getMode(argv){
+  if (process.argv[1].includes("webpack-dev-server")){
+    return 'development-server'
+  } else if (argv.mode !== 'production'){
+    return 'development'
+  } else {
+    return 'production'
+  }
+}
+
 
 // ****************************************************************************************************
 // Export Config
@@ -21,7 +36,8 @@ const publicDir = "./public"
 module.exports = function (env, argv) {
 
   // show webpack mode
-  console.log(`Webpack in ${argv.mode} mode`)
+  const mode = getMode(argv);
+  console.log(`Webpack in ${mode} mode`)
 
   // init config
   let config = {
@@ -32,9 +48,10 @@ module.exports = function (env, argv) {
     context: path.resolve(privateDir),
     // aliases
     resolve: {
-      extensions: ['.js', '.json'],
+      extensions: ['.js', '.jsx', '.scss', '.sass', '.css'],
       alias: {
-        '@': path.resolve(privateDir)
+        '@': path.resolve(privateDir),
+        '~': path.resolve(modulesDir)
       }
     },
     // bundler modules
@@ -49,7 +66,7 @@ module.exports = function (env, argv) {
       }, {
         test: /\.(sa|sc|c)ss$/,
         use: [{
-          loader: process.argv[1].includes("webpack-dev-server") ? 'style-loader' : MiniCssExtractPlugin.loader,
+          loader: mode === 'development-sever' ? 'style-loader' : MiniCssExtractPlugin.loader,
         }, {
           loader: 'css-loader',
         }, {
@@ -74,7 +91,6 @@ module.exports = function (env, argv) {
     },
     // bundler plugins
     plugins: [
-      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         hash: true,
         template: path.resolve('./private/index.html'),
@@ -97,21 +113,30 @@ module.exports = function (env, argv) {
     output: {
       path: path.resolve(publicDir),
       filename: 'js/index.js'
-    },
+    }
   }
 
-  // init env config
-  if (argv.mode === 'development') {
+  // init mode based config
+  if (mode === 'development-server') {
+    // development-server
     config.performance = {
       hints: false
     },
-    config.devtool = 'source-map';
     config.devServer = {
       open: true,
       port: 3001
     }
-  } else if (argv.mode === 'production') {
-    // production config additions
+  } else if (argv.mode !== 'production') {
+    // development
+    config.devtool = 'source-map'
+    config.plugins.push(new CleanWebpackPlugin())
+    config.performance = {
+      hints: false
+    }
+  } else {
+    // production
+    config.devtool = 'source-map'
+    config.plugins.push(new CleanWebpackPlugin())
   }
 
   // return config
