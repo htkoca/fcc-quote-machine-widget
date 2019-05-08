@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang='en'>
+
+  <head>
+    <!-- page meta -->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <!-- content meta -->
+    <title>fcc-quote-machine</title>
+    <meta name='description' content=''>
+    <meta name='author' content=''>
+    <!-- css -->
+    <%=
+      htmlWebpackPlugin.files.css.map(href =>
+        `<link rel="stylesheet" href="${href}">`
+      ).join("\n    ")
+    %>
+  </head>
+
+  <body>
+    <!-- body -->
+    <div id="react-root"></div>
+    <!-- script -->
+    <%=
+      htmlWebpackPlugin.files.js.map(src =>
+        `<script src="${src}"></script>`
+      ).join("\n    ")
+    %>
+  </body>
+
+</html>
