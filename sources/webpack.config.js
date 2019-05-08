@@ -18,7 +18,7 @@ const publicDir = "./public"
 // ****************************************************************************************************
 
 // export config
-module.exports = function(env, argv) {
+module.exports = function (env, argv) {
 
   // show webpack mode
   console.log(`Webpack in ${argv.mode} mode`)
@@ -39,35 +39,38 @@ module.exports = function(env, argv) {
     },
     // bundler modules
     module: {
-      rules: [
-        {
+      rules: [{
           test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
-          }
-        },
-        {
-          test: /\.(sa|sc|c)ss$/,
-          use: [
-            process.argv[1].includes("webpack-dev-server") ? 'style-loader' : MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ]
-        },
-        {
-          test: /\.(svg|png|jpe?g|gif|txt)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[path][name].[ext]',
-              }
-            }
-          ]
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"]
         }
-      ]
+      }, {
+        test: /\.(sa|sc|c)ss$/,
+        use: [{
+          loader: process.argv[1].includes("webpack-dev-server") ? 'style-loader' : MiniCssExtractPlugin.loader,
+        }, {
+          loader: 'css-loader',
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            plugins: function () {
+              return [require('autoprefixer')];
+            }
+          }
+        }, {
+          loader: 'sass-loader'
+        }]
+      }, {
+        test: /\.(svg|png|jpe?g|gif|txt)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          }
+        }]
+      }]
     },
     // bundler plugins
     plugins: [
@@ -99,8 +102,8 @@ module.exports = function(env, argv) {
 
   // init env config
   if (argv.mode === 'development') {
-    config.performance = { 
-      hints: false 
+    config.performance = {
+      hints: false
     },
     config.devtool = 'source-map';
     config.devServer = {
