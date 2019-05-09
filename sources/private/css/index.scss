@@ -1,2 +1,11 @@
 @import './variables.scss';
 @import '~/bootstrap/scss/bootstrap.scss';
+
+.fade-box {
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.fade-box.active {
+  opacity: 1;
+}

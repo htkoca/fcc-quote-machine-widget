@@ -1,13 +1,13 @@
 // libraries
-import React from 'react';
-import ReactDom from 'react-dom';
+import React from '~/react';
+import ReactDom from '~/react-dom';
 
 // components
-import Button from 'react-bootstrap/Button';
-import App from "./components/App.jsx";
+import App from '@/js/components/App';
 
 // css
-import "../css/index.scss";
+import '@/css/index';
+import '@/data/quotes.json';
 
 // render app
 ReactDom.render(<App /> ,document.getElementById('react-root'));

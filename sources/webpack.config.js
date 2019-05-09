@@ -57,12 +57,14 @@ module.exports = function (env, argv) {
     // bundler modules
     module: {
       rules: [{
-          test: /\.jsx?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env", "@babel/preset-react"]
-        }
+        use: [{
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"]
+          }
+        }]
       }, {
         test: /\.(sa|sc|c)ss$/,
         use: [{
@@ -81,6 +83,15 @@ module.exports = function (env, argv) {
         }]
       }, {
         test: /\.(svg|png|jpe?g|gif|txt)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          }
+        }]
+      }, {
+        type: 'javascript/auto',
+        test: /\.json$/,
         use: [{
           loader: 'file-loader',
           options: {
