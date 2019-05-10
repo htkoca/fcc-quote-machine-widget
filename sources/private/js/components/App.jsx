@@ -1,7 +1,6 @@
 // libraries
 import React from '~/react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import qs from 'qs';
 
 // components
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
@@ -54,6 +53,7 @@ export default class App extends React.Component {
       })
   }
   render() {
+    let query = qs.stringify({ text: `${this.state.quote} - ${this.state.author}`, url: window.location.href });
     return (
       <main id='main' className='py-4'>
         <div className='container'>
@@ -66,7 +66,7 @@ export default class App extends React.Component {
               <hr/>
               <ButtonToolbar>
                 <Button id='new-quote' className="mr-2" variant='primary' onClick={this.getQuote} disabled={this.state.loading}>New Quote</Button>
-                <Button id='tweet-quote' variant='primary' href="https://twitter.com/intent/tweet" disabled={this.state.loading}>Tweet Quote</Button>
+                <Button id='tweet-quote' variant='primary' href={`https://twitter.com/intent/tweet?${query}`} disabled={this.state.loading} target="_blank">Tweet Quote</Button>
               </ButtonToolbar>
             </Card.Body>
             <Card.Footer className='text-muted'>2 days ago</Card.Footer>
