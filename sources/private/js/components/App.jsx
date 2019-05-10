@@ -58,7 +58,7 @@ export default class App extends React.Component {
       <main id='main' className='py-4'>
         <div className='container'>
           <Card>
-            <Card.Header>Quote</Card.Header>
+            <Card.Header>Random Quote Machine</Card.Header>
             <Card.Body id='quote-box'>
               <div className={this.state.loading ? 'fade-box' : 'fade-box active'}>
                 <Blockquote quote={this.state.quote} author={this.state.author}/>
@@ -69,7 +69,6 @@ export default class App extends React.Component {
                 <Button id='tweet-quote' variant='primary' href={`https://twitter.com/intent/tweet?${query}`} disabled={this.state.loading} target="_blank">Tweet Quote</Button>
               </ButtonToolbar>
             </Card.Body>
-            <Card.Footer className='text-muted'>2 days ago</Card.Footer>
           </Card>
         </div>
       </main>
