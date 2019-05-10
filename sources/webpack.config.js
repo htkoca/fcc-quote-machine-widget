@@ -90,8 +90,9 @@ module.exports = function (env, argv) {
           }
         }]
       }, {
-        type: 'javascript/auto',
         test: /\.json$/,
+        type: 'javascript/auto',
+        exclude: /node_modules/,
         use: [{
           loader: 'file-loader',
           options: {
