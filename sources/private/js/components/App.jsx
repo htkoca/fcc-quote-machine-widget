@@ -1,6 +1,6 @@
 // libraries
 import React from '~/react';
-import qs from 'qs';
+import qs from '~/qs';
 
 // components
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
