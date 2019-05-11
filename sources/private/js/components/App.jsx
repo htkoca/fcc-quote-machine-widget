@@ -3,9 +3,9 @@ import React from '~/react';
 import qs from '~/qs';
 
 // components
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import ButtonToolbar from '~/react-bootstrap/ButtonToolbar';
+import Button from '~/react-bootstrap/Button';
+import Card from '~/react-bootstrap/Card';
 import Blockquote from '@/js/components/Blockquote';
 
 // setTimeout Promise
