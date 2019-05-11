@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import '~/bootstrap/scss/bootstrap.scss';
+@import '@/css/variables';
+@import '~/bootstrap/scss/bootstrap';
 
 .fade-box {
   transition: all 0.2s ease;
