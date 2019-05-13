@@ -7,6 +7,8 @@ import App from '@/js/components/App';
 
 // css
 import '@/css/index';
+
+// data
 import '@/data/quotes.json';
 
 // render app
